@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYS 42 Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>PHYS 42 Grade Calculator</h1>
+        <p>For Dr. Panunto's class, based on the Fall 2025 syllabus</p>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="results-section" aria-labelledby="results-heading">
+                <h2 id="results-heading">Your Calculated Grade</h2>
+                <div class="results-display">
+                    <div id="final-grade" class="grade-percentage">--.-%</div>
+                    <div id="letter-grade" class="grade-letter">--</div>
+                </div>
+                <div id="grade-breakdown">
+                    <h3>Category Breakdown</h3>
+                    <ul>
+                        <li>Homework (10%): <strong id="breakdown-hw">N/A</strong></li>
+                        <li>Laboratory (10%): <strong id="breakdown-lab">N/A</strong></li>
+                        <li>Quizzes (20%): <strong id="breakdown-quiz">N/A</strong></li>
+                        <li>Exams (60%): <strong id="breakdown-exam">N/A</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <form id="grade-form">
+                <section class="input-section" aria-labelledby="hw-heading">
+                    <h2 id="hw-heading">Homework (10%)</h2>
+                    <p>
+                        Go to Mastering Physics via <a href="https://canvas.butte.edu/courses/40072/external_tools/20039" target="_blank" rel="noopener noreferrer">Canvas</a>, open "MyLab & Mastering," and click the "Scores" tab. Enter your "Mastering Score" percentage below.
+                    </p>
+                    <fieldset>
+                        <legend class="sr-only">Homework Score</legend>
+                        <div class="input-group">
+                            <label for="homework-percent">Mastering Score</label>
+                            <div class="exam-input-row">
+                                <input type="number" id="homework-percent" class="exam-score" placeholder="e.g., 99.36" min="0" step="0.01">
+                                <span>%</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </section>
+
+                <section class="input-section" aria-labelledby="lab-heading">
+                    <h2 id="lab-heading">Laboratory (10%)</h2>
+                    <fieldset>
+                        <legend class="sr-only">Laboratory Scores</legend>
+                        <div id="lab-list" class="score-list">
+                            </div>
+                        <button type="button" class="btn-add" data-category="lab">Add Lab Score</button>
+                    </fieldset>
+                </section>
+
+                <section class="input-section" aria-labelledby="quiz-heading">
+                    <h2 id="quiz-heading">Quizzes (20%)</h2>
+                    <p>The two (2) lowest quiz scores will be dropped.</p>
+                    <fieldset>
+                        <legend class="sr-only">Quiz Scores</legend>
+                        <div id="quiz-list" class="score-list">
+                            </div>
+                        <button type="button" class="btn-add" data-category="quiz">Add Quiz Score</button>
+                    </fieldset>
+                </section>
+
+                <section class="input-section" aria-labelledby="exam-heading">
+                    <h2 id="exam-heading">Exams (60% total)</h2>
+                    <fieldset>
+                        <legend class="sr-only">Exam and Extra Credit Scores</legend>
+                        <div class="exam-grid">
+                            <div class="input-group">
+                                <label for="exam1">Exam 1 (20%)</label>
+                                <div class="exam-input-row">
+                                    <input type="number" id="exam1" class="exam-score" placeholder="Score" min="0">
+                                    <span>/ 100</span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="exam2">Exam 2 (20%)</label>
+                                <div class="exam-input-row">
+                                    <input type="number" id="exam2" class="exam-score" placeholder="Score" min="0">
+                                    <span>/ 100</span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="exam3">Exam 3 (20%)</label>
+                                <div class="exam-input-row">
+                                    <input type="number" id="exam3" class="exam-score" placeholder="Score" min="0">
+                                    <span>/ 100</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group-full">
+                            <label for="extra-credit">Extra Credit Points</label>
+                            <input type="number" id="extra-credit" placeholder="e.g., 1" min="0" value="0">
+                            <p class="note">Each point adds 5 points to the total exam score pool.</p>
+                        </div>
+                    </fieldset>
+                </section>
+            </form>
+
+            <section class="data-section" aria-labelledby="data-heading">
+                <h2 id="data-heading">Manage Data</h2>
+                <p>Your data is saved in your browser. You can also export (save) or import (load) a file.</p>
+                <div class="button-group">
+                    <button type="button" id="export-btn" class="btn">Export Data</button>
+                    <label for="import-file" class="btn btn-import">
+                        Import Data
+                        <input type="file" id="import-file" accept=".json" class="sr-only">
+                    </label>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>A tool for PHYS 42 (Fall 2025). Not affiliated with Butte College.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
